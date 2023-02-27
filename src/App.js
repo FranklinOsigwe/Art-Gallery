@@ -14,7 +14,6 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/*" element={<NotFound />} />
           <Route path="/cart" element={<Cart />} />
-         
      
         </Routes>
       </BrowserRouter>
