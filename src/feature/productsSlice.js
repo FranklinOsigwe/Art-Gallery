@@ -9,10 +9,7 @@ const initialState = {
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
   async () => {
-    console.log('hello1')
     const response = await axios.get("http://localhost:5000/products");
-    console.log('hello2')
-    console.log(response.data, 'hello')
     return response?.data;
   }
 );
@@ -20,7 +17,7 @@ const productsSlice = createSlice({
   name: "products",
   initialState,
   reducers: {},
-  extraReducers:  {
+  extraReducers: {
     [fetchProducts.pending]: (state, action) => {
       state.status = "pending";
     },
