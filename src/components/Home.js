@@ -1,7 +1,13 @@
-import {useGetAllProductsQuery } from "../feature/productApi";
+import { addToCart } from "../feature/cartSlice";
+import { useGetAllProductsQuery } from "../feature/productApi";
+
 
 function Home() {
   const { data, error, isLoading } = useGetAllProductsQuery();
+
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product))
+    
   return (
     <div className="home-container">
       {isLoading ? (
@@ -20,7 +26,7 @@ function Home() {
                       <span>{product.desc}</span>
                       <span className="price">${product.price}</span>
                     </div>
-                    <button className="">Add to Cart</button>
+                    <button onClick={() => handleAddToCart(product)}>Add to Cart</button>
                   </div>
                  ))}
               </div>
